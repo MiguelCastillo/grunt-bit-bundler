@@ -78,7 +78,7 @@ module.exports = function(grunt) {
 
         return bundleFiles(vendorSettings)(getVendorFiles(bundles))
           .then(function(bundle) {
-            return [bundle];
+            return bundle ? [bundle] : [];
           });
       };
     }
