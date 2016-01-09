@@ -1,6 +1,6 @@
 # grunt-bit-bundler
 
-> The best Grunt plugin ever.
+> bit-bundler grunt plugin
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -35,55 +35,36 @@ grunt.initConfig({
 });
 ```
 
-### Options
-
-#### options.separator
-Type: `String`
-Default value: `',  '`
-
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
-
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+#### Base configuration
+In this example, bitbundler will load `src/testing` and `src/123` as entry modules, and the bundle is written to `dest/app.js`.  Using the vendor bundler, this configuration will automatically split out all vendor modules into its own bundle.
 
 ```js
+var jsPlugin = require('bit-loader-js');
+var jsBundler = require('bit-bundler-browserpack');
+var vendorBundler = require('bit-bundler-vendor');
+
 grunt.initConfig({
   bitbundler: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    files: [{
+      dest:'dest/app.js',
+      src: ['src/testing', 'src/123']
+    }],
+    loader: {
+      plugins: [
+        jsPlugin()
+      ]
     },
+    bundler: jsBundler({
+      plugins: [
+        vendorBundler('dest/vendor.js')
+      ]
+    })
   },
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+### License
 
-```js
-grunt.initConfig({
-  bitbundler: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
+Licensed under MIT
