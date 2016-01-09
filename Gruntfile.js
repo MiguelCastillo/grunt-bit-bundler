@@ -10,8 +10,15 @@
 
 module.exports = function(grunt) {
 
+  require("load-grunt-tasks")(grunt);
+
+  var pkg = require("./package.json");
+  var jsBundler = require("bit-bundler-browserpack");
+
   // Project configuration.
   grunt.initConfig({
+    pkg: pkg,
+
     jshint: {
       all: [
         'Gruntfile.js',
@@ -35,7 +42,8 @@ module.exports = function(grunt) {
         },
         files: {
           'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        },
+        bundler: jsBundler({})
       },
       custom_options: {
         options: {
@@ -44,24 +52,29 @@ module.exports = function(grunt) {
         },
         files: {
           'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        },
+        bundler: jsBundler({})
       }
     },
 
     // Unit tests.
     nodeunit: {
       tests: ['test/*_test.js']
+    },
+
+    release: {
+      options: {
+        tagName: "v<%= version %>",
+        tagMessage: "Version <%= version %>",
+        commitMessage: "Release v<%= version %>",
+        afterBump: ["jshint"]
+      }
     }
 
   });
 
   // Actually load this plugin's task(s).
   grunt.loadTasks('tasks');
-
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
