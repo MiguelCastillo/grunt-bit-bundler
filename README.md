@@ -38,12 +38,12 @@ grunt.initConfig({
 ### Usage Examples
 
 #### Base configuration
-In this example, bitbundler will load `src/testing` and `src/123` as entry modules, and the bundle is written to `dest/app.js`.  Using the vendor bundler, this configuration will automatically split out all vendor modules into its own bundle.
+In this example, bitbundler will load `src/testing` and `src/123` as entry modules, and the bundle is written to `dest/app.js`.  Using the bundler splitter, this configuration will automatically split out all vendor modules into its own bundle.
 
 ```js
 var jsPlugin = require('bit-loader-js');
 var jsBundler = require('bit-bundler-browserpack');
-var vendorBundle = require('bit-bundler-vendor');
+var splitBundle = require('bit-bundler-splitter');
 
 grunt.initConfig({
   bitbundler: {
@@ -58,7 +58,7 @@ grunt.initConfig({
     },
     bundler: jsBundler({
       plugins: [
-        vendorBundle('dest/vendor.js')
+        splitBundle('dest/vendor.js')
       ]
     })
   },
