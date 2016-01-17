@@ -42,7 +42,6 @@ In this example, bitbundler will load `src/testing` and `src/123` as entry modul
 
 ```js
 var jsPlugin = require('bit-loader-js');
-var jsBundler = require('bit-bundler-browserpack');
 var splitBundle = require('bit-bundler-splitter');
 
 grunt.initConfig({
@@ -56,12 +55,12 @@ grunt.initConfig({
         jsPlugin()
       ]
     },
-    bundler: jsBundler({
+    bundler: {
       plugins: [
         splitBundle('dest/vendor.js')
       ]
-    })
-  },
+    }
+  }
 });
 ```
 
