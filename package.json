@@ -1,7 +1,7 @@
 {
   "name": "grunt-bit-bundler",
   "description": "The best Grunt plugin ever.",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "homepage": "https://github.com/MiguelCastillo/grunt-bit-bundler",
   "author": {
     "name": "Miguel Castillo",
