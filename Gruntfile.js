@@ -13,7 +13,6 @@ module.exports = function(grunt) {
   require("load-grunt-tasks")(grunt);
 
   var pkg = require("./package.json");
-  var jsBundler = require("bit-bundler-browserpack");
 
   // Project configuration.
   grunt.initConfig({
@@ -42,8 +41,7 @@ module.exports = function(grunt) {
         },
         files: {
           'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        },
-        bundler: jsBundler({})
+        }
       },
       custom_options: {
         options: {
@@ -52,8 +50,7 @@ module.exports = function(grunt) {
         },
         files: {
           'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        },
-        bundler: jsBundler({})
+        }
       }
     },
 
