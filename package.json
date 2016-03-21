@@ -43,7 +43,7 @@
   ],
   "dependencies": {
     "belty": "^0.3.0",
-    "bit-bundler": "^2.0.6",
+    "bit-bundler": "^2.0.8",
     "dis-isa": "^1.2.2"
   }
 }
