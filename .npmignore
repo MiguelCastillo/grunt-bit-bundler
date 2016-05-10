@@ -3,3 +3,4 @@
 Gruntfile.js
 tests
 tmp
+/examples/dest
