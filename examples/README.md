@@ -9,7 +9,7 @@ Installation
  - `npm install bit-bundler bit-loader-js bit-bundler-splitter --save-dev`
 - install react and react-dom
  - `npm install react react-dom --save-dev`
-- instann babel-core and presets
+- install babel-core and presets
  - `npm install babel-core babel-preset-es2015 babel-preset-react --save-dev`
 
 This is what the actual grunt confguration looks like:
