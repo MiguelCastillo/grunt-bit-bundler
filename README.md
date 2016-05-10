@@ -35,7 +35,9 @@ grunt.initConfig({
 });
 ```
 
-### Usage Examples
+### Examples
+
+Go [here](https://github.com/MiguelCastillo/grunt-bit-bundler/tree/master/examples) for a full running setup.
 
 #### Base configuration
 In this example, bitbundler will load `src/testing` and `src/123` as entry modules, and the bundle is written to `dest/app.js`.  Using the bundler splitter, this configuration will automatically split out all vendor modules into its own bundle.
