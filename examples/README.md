@@ -5,12 +5,14 @@ This is a grunt setup to generate bundles in which the source code uses ES2015 a
 Installation
 ----------------
 
+- install grunt task
+  - `npm install grunt-bit-bundler --save-dev`
 - install bit-bundler, js-plugin, and bundler-splitter
- - `npm install bit-bundler bit-loader-js bit-bundler-splitter --save-dev`
-- install react and react-dom
- - `npm install react react-dom --save-dev`
+  - `npm install bit-bundler bit-loader-js bit-bundler-splitter --save-dev`
 - install babel-core and presets
- - `npm install babel-core babel-preset-es2015 babel-preset-react --save-dev`
+  - `npm install babel-core babel-preset-es2015 babel-preset-react --save-dev`
+- install react and react-dom
+  - `npm install react react-dom --save-dev`
 
 This is what the actual grunt confguration looks like:
 
