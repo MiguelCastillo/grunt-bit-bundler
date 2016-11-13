@@ -33,7 +33,7 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-nodeunit": "^1.0.0",
     "grunt-release": "^0.14.0",
-    "load-grunt-tasks": "^3.5.0"
+    "load-grunt-tasks": "^3.5.2"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"
@@ -42,6 +42,6 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "bit-bundler": "^2.1.2"
+    "bit-bundler": "^5.2.0"
   }
 }
