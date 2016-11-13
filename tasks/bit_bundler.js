@@ -29,7 +29,6 @@ module.exports = function(grunt) {
           src: file.src,
           dest: file.dest
         }, settings).then(function() {
-          grunt.log.ok("Bundle ready", file.dest);
           done();
         }, function(err) {
           logError(err);
