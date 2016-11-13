@@ -42,12 +42,15 @@ Go [here](https://github.com/MiguelCastillo/grunt-bit-bundler/tree/master/exampl
 #### Base configuration
 In this example, bitbundler will load `src/testing` and `src/123` as entry modules, and the bundle is written to `dest/app.js`.  Using the bundler splitter, this configuration will automatically split out all vendor modules into its own bundle.
 
-```js
+``` javascript
+var Bitbundler = require('bit-bundler');
 var jsPlugin = require('bit-loader-js');
 var splitBundle = require('bit-bundler-splitter');
 
 grunt.initConfig({
   bitbundler: {
+    Bitbundler: Bitbundler, // Specify the Bitbundler constructor to use.
+    watch: true,
     files: [{
       dest:'dest/app.js',
       src: ['src/testing', 'src/123']
