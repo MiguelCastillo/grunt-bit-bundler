@@ -31,7 +31,6 @@ module.exports = function(grunt) {
         }, settings).then(function() {
           done();
         }, function(err) {
-          logError(err);
           done(err);
         });
       });
