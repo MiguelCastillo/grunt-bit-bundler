@@ -25,14 +25,18 @@ module.exports = function(grunt) {
 
     try {
       this.files.forEach(function(file) {
-        Bitbundler.bundle({
+        var bundler = Bitbundler.bundle({
           src: file.src,
           dest: file.dest
-        }, settings).then(function() {
-          done();
-        }, function(err) {
-          done(err);
-        });
+        }, settings);
+
+        if (!settings.watch) {
+          bundler.then(function() {
+            done();
+          }, function(err) {
+            done(err);
+          });
+        }
       });
     }
     catch(err) {
