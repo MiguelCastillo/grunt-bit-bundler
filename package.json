@@ -28,6 +28,7 @@
     "test": "grunt test"
   },
   "devDependencies": {
+    "bit-bundler": "^5.3.1",
     "grunt": "~1.0.1",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-jshint": "^1.1.0",
@@ -42,6 +43,5 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "bit-bundler": "^5.3.1"
   }
 }
