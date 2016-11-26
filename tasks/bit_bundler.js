@@ -16,7 +16,8 @@ module.exports = function(grunt) {
   }
 
   grunt.task.registerMultiTask("bitbundler", "bit bundler grunt plugin", function() {
-    var settings = this.data || {};
+    var settings = Object.assign({ files: [] }, this.options(), this.data);
+    var files = this.files && this.files.length ? this.files : settings.files;
     var done = this.async();
 
     if (settings.Bitbundler) {
@@ -24,7 +25,7 @@ module.exports = function(grunt) {
     }
 
     try {
-      this.files.forEach(function(file) {
+      files.forEach(function(file) {
         var bundler = Bitbundler.bundle({
           src: file.src,
           dest: file.dest
