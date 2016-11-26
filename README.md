@@ -48,20 +48,22 @@ var splitBundle = require('bit-bundler-splitter');
 
 grunt.initConfig({
   bitbundler: {
-    watch: true,
-    files: [{
-      dest:'dest/app.js',
-      src: ['src/testing', 'src/123']
-    }],
-    loader: {
-      plugins: [
-        jsPlugin()
-      ]
-    },
-    bundler: {
-      plugins: [
-        splitBundle('dest/vendor.js')
-      ]
+    build: {
+      watch: true,
+      files: [{
+        dest:'dest/app.js',
+        src: ['src/testing', 'src/123']
+      }],
+      loader: {
+        plugins: [
+          jsPlugin()
+        ]
+      },
+      bundler: {
+        plugins: [
+          splitBundle('dest/vendor.js')
+        ]
+      }
     }
   }
 });
